@@ -13,7 +13,7 @@ def authEvents(events):
     # Write your code here
     passwordString = ''
     hashedPassword = 0
-    hashedPasswordWithExtraCharacterList = []
+    solutionsList = []
     
     print(events)
     
@@ -29,10 +29,14 @@ def authEvents(events):
             
         elif event[0] == 'authorize':
             print(event[1])
-            if event[1] == hashedPassword or isHashedPasswordWithExtraCharacter('cAr1',hashedPassword ,event[1]):
-                return 1
+            if event[1] == hashedPassword or isHashedPasswordWithExtraCharacter(passwordString,hashedPassword ,event[1]):
+                solutionsList.append(1)
             else:
-                return 0
+                solutionsList.append(0)
+                
+                
+    return solutionsList
+
             
 def isHashedPasswordWithExtraCharacter(password, hashedPassword, authHashedPassword):
     #generate a list of alphabets and digits 0-9
